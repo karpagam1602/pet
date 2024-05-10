@@ -1,0 +1,37 @@
+package com.leave.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.leave.entity.Admin;
+import com.leave.entity.Leave;
+import com.leave.repository.AdminRepository;
+import com.leave.repository.LeaveRepository;
+
+@RestController
+@CrossOrigin("*")
+public class LeaveController {
+	
+
+	@Autowired
+	private LeaveRepository leaveRepo;
+	
+	@PostMapping("/addLeave")
+	public Leave addLeave(@RequestBody Leave leave) {
+		return leaveRepo.save(leave);
+	}
+
+
+	@GetMapping("/getAllLeave")
+	public List<Leave> findAllAdmin(){
+		return leaveRepo.findAll();
+	}
+
+}

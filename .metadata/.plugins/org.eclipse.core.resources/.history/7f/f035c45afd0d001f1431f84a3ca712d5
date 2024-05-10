@@ -1,0 +1,111 @@
+package com.leave.entity;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int empId;
+	private String empName;
+	private String designation;
+	private long mobileNo;
+	private String email;
+
+	@OneToMany(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "employee_id")
+	private List<Leave> leave;
+
+	public Employee() {
+		super();
+	}
+
+	public Employee(int empId, String empName, String designation, long mobileNo, String email, List<Leave> leave,
+			Admin admin) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.designation = designation;
+		this.mobileNo = mobileNo;
+		this.email = email;
+		this.leave = leave;
+		this.admin = admin;
+	}
+
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public long getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(long mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public List<Leave> getLeave() {
+		return leave;
+	}
+
+	public void setLeave(List<Leave> leave) {
+		this.leave = leave;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", designation=" + designation + ", mobileNo="
+				+ mobileNo + ", email=" + email + ", leave=" + leave + ", admin=" + admin + "]";
+	}
+
+}

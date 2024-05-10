@@ -1,0 +1,20 @@
+package com.leave.entity;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+
+public class Leave {
+
+	@Id
+	private String type;
+	private int noOfDays;
+	private String Status;
+	
+	
+	
+}

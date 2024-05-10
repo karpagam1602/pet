@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=D\:\\hibernate spring workspace\\Spring_MVCMain\\.git;D\:\\SpringBoot workspace\\ManualTesting-PET\\.git;D\:\\Devops workspace\\DevopsJenkinsDemo\\.git;
+GitRepositoriesView.GitDirectories.relative=D\:\\hibernate spring workspace\\Spring_MVCMain\\.git;D\:\\SpringBoot workspace\\ManualTesting-PET\\.git;DevopsJenkinsDemo\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1
